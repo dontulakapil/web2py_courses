@@ -1,0 +1,22 @@
+(dp1
+S'course'
+p2
+S'CHAR(512)'
+p3
+sS'credits'
+p4
+S'INTEGER'
+p5
+sS'courses_id'
+p6
+S'CHAR(512)'
+p7
+sS'id'
+p8
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p9
+sS'faculty'
+p10
+S'CHAR(512)'
+p11
+s.

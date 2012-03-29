@@ -1,0 +1,26 @@
+(dp1
+S'asignment_name'
+p2
+S'CHAR(512)'
+p3
+sS'assignment_discription'
+p4
+S'TEXT'
+p5
+sS'assignment_name'
+p6
+S'CHAR(512)'
+p7
+sS'courses_id'
+p8
+S'REFERENCES courses(id) ON DELETE CASCADE'
+p9
+sS'asignment_discription'
+p10
+S'TEXT'
+p11
+sS'id'
+p12
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p13
+s.

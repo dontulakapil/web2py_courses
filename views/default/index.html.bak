@@ -1,0 +1,24 @@
+{{extend 'layout.html'}}
+<h1 style='text-align:center'>COURSES</h1>
+<table>
+<tr>
+    <th>Course Name</th>
+    <th>Credits</th>
+    <th>Option</th>
+</tr>
+{{for cours in courses:}}
+<tr>
+<td style='text-align:center'>
+{{=LI(A(cours.course,_href=URL(r=request,f="show",args=cours.courses_id)))}}</td>
+<td style='text-align:center'>{{=cours.credits}}</td>
+<td>
+{{if auth.has_membership(11):}}
+<a href={{=URL(r=request,f="delete",args=cours.id)}}>delete this course </a></td>{{pass}}
+</tr>
+{{pass}}
+</table><br />
+<br />
+{{if auth.has_membership(11):}}
+<a href={{=URL(r=request,f="insert")}}>INSERT NEW COURSE</a><br />{{pass}}
+{{if auth.has_membership(11) or auth.has_membership(6):}}
+<a href={{=URL(r=request,f="addta")}}>ADD NEW TA</a><br />{{pass}}

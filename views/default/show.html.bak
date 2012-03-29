@@ -1,0 +1,43 @@
+{{extend 'layout.html'}}
+{{for courses in courses:}}
+<h1>{{=courses.course}}</h1>
+<table>
+<tr>
+    <th>Faculty</th>
+    <th>Credits</th>
+    <th>Course_id</th>
+</tr>
+<tr>
+    <td>{{=courses.faculty}}</td>
+    <td>{{=courses.credits}}</td>
+    <td>{{=courses.courses_id}}</td>  
+</tr>
+</table>
+{{pass}}
+
+<h1>ASSIGNMENTS</h1>
+<table>
+<tr>
+    <th>Assignment name</th>
+    <th>Description</th>
+</tr> 
+{{for i in asignments:}}
+<tr>
+    <td>{{=i.assignment_name}} </td>
+    <td>{{=i.assignment_discription}} </td>
+</tr>
+{{pass}}
+</table>
+<h1>TAs</h1>
+<table>
+<tr>
+    <td>TA NAME</td>
+</tr>
+{{for j in ta:}}
+<tr>
+    <td>{{=j.ta_name}}</td>
+</tr>
+{{pass}}
+</table>
+{{if auth.has_membership(6) or auth.has_membership(7):}}
+<a href={{=URL(r=request,f="addas",args=courses.courses_id)}}>Add Assignmnet</a>{{pass}}

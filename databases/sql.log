@@ -1,0 +1,72 @@
+timestamp: 2010-04-21T06:52:22.384399
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512)
+);
+success!
+timestamp: 2010-04-21T06:52:22.482000
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2010-04-21T06:52:22.551510
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id REFERENCES auth_user(id) ON DELETE CASCADE,
+    group_id REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2010-04-21T06:52:22.632727
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id REFERENCES auth_group(id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2010-04-21T06:52:22.716603
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id REFERENCES auth_user(id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2010-04-21T06:52:22.808352
+CREATE TABLE courses(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    course CHAR(512),
+    courses_id CHAR(512),
+    credits INTEGER,
+    faculty CHAR(512)
+);
+success!
+timestamp: 2010-04-21T07:17:46.262033
+CREATE TABLE TA(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    courses_id REFERENCES courses(id) ON DELETE CASCADE,
+    ta_name CHAR(512)
+);
+success!
+timestamp: 2010-04-21T07:28:41.171982
+CREATE TABLE assignment(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    courses_id REFERENCES courses(id) ON DELETE CASCADE,
+    asignment_name CHAR(512),
+    asignment_discription TEXT
+);
+success!
+timestamp: 2010-04-21T07:29:17.387415
+ALTER TABLE assignment ADD assignment_name CHAR(512);
+timestamp: 2010-04-21T07:29:17.445503
+ALTER TABLE assignment ADD assignment_discription TEXT;
